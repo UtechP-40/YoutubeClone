@@ -29,10 +29,10 @@ document.querySelector(".form").addEventListener("submit",(e)=>{
     }).then((output)=>{
         console.log
         if(!output.success){
-            displayMsg
+            displayMsg(output.message)
             return
         }
-        localStorage.setItem("token",output.data.token);
+        localStorage.setItem("token",output.token);
         let token = localStorage.getItem("token")
         if(!token)return;
         // authorization("",token)
