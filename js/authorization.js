@@ -39,10 +39,10 @@ return res.json()
         throw new Error(output.message) 
     }
     if(output.data.token){
-        token = output.data.token;
+       token = output.data.token;
         localStorage.setItem("token",token)
         if(localStorage.getItem("token")){
-            authorization()
+            authorization(token)
         }
     }
 
@@ -58,7 +58,8 @@ return res.json()
 function authorization(){
     let url = "https://instagram-express-app.vercel.app/api/auth/zuku"
 let myHeader = new Headers();
-     token = localStorage.getItem("token")
+     
+     if(!token)return;
     myHeader.append("Authorization",`Bearer ${token}`)
  fetch(url,{
         method:"GET",
@@ -84,6 +85,6 @@ function displayMsg(msg){
     setTimeout(()=>{
         document.querySelector(".message").innerText=""
     },10000)
-}
+};
 
-export default displayMsg
+export { displayMsg, authorization };
