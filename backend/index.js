@@ -38,6 +38,3 @@ app.listen(port, () => {
 
 
 
-
-//     user: "vidstr70@gmail.com",
-    //   pass: "Pradeep@1234"
