@@ -4,7 +4,8 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const app = express();
 const port = 3000;
-
+const cors = require('cors');
+app.use(cors());
 app.use(express.json());
 // let pass = 
 app.post('/send-email', (req, res) => {
@@ -22,7 +23,7 @@ app.post('/send-email', (req, res) => {
     to,
     subject,
     text,
-    html
+    html,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
@@ -35,6 +36,3 @@ app.post('/send-email', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
-
-
-

@@ -87,4 +87,4 @@ function displayMsg(msg){
     },10000)
 };
 
-export { displayMsg, authorization };
+// export default displayMsg;
