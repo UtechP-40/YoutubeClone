@@ -121,6 +121,7 @@ document.querySelector(".form").addEventListener("submit",(e)=>{
         element.after(oneTimePass);
         element.style.display = "none"
         let count = 0;
+        console.log(otp1)
         return new Promise((resolve, reject) => {
         document.querySelector(".otp").addEventListener("submit", (e) => {
             e.preventDefault();
