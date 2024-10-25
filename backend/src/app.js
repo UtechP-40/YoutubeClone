@@ -1,11 +1,35 @@
-require('dotenv').config(); 
-
-const express = require('express');
-const nodemailer = require('nodemailer');
+import express from 'express';
+import cors from "cors";
+import cookieParser from "cookie-parser"
 const app = express();
-const port = 3000;
-const cors = require('cors');
-app.use(cors());
+import dotenv from "dotenv";
+import nodemailer from 'nodemailer';
+// import cors from 'cors';
+import userRouter  from './routes/user.routes.js';
+dotenv.config({
+    path: './env'
+});
+app.use(cors({
+    origin: process.env.CORS_ORIGIN,
+    credentials: true
+}))
+
+app.use(express.json({limit: "20kb"}));
+app.use(express.urlencoded({
+    extended: true,
+    limit: "20kb"
+}))
+app.use(express.static("public"))
+app.use(cookieParser())
+
+// require('dotenv').config(); 
+// import dotenv from 'dotenv';
+dotenv.config({
+    path: './env'
+});
+
+
+// app.use(cors());
 app.use(express.json());
 // let pass = 
 app.post('/send-email', (req, res) => {
@@ -79,6 +103,12 @@ app.get("/send-otp",(req,res)=>{
     otpGenerator.displayQueue();
     res.send(otp1)
 })
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Server is running on http://localhost:${port}`);
+// });
+
+
+app.use("/api/v1/users", userRouter);
+
+
+export { app }
