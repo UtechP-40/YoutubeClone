@@ -72,7 +72,7 @@ document.querySelector(".form").addEventListener("submit",(e)=>{
     
 
     //fetch for send mail api
-     fetch("http://localhost:3000/send-email",{
+     fetch("http://localhost:8000/send-email",{
         method: "POST",
         headers:{
             "Content-Type": "application/json"

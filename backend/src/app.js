@@ -64,7 +64,7 @@ class OTPGenerator {
   constructor() {
     this.queue = [];
     this.otpSet = new Set(); 
-    this.expiryTime = 6000; 
+    this.expiryTime = 6000;
   }
 
 //  <-[123456,]<-
@@ -107,6 +107,7 @@ app.get("/send-otp",(req,res)=>{
 //   console.log(`Server is running on http://localhost:${port}`);
 // });
 
+// API for speech to voice //
 
 app.use("/api/v1/users", userRouter);
 

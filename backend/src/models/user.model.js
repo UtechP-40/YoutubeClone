@@ -64,7 +64,8 @@ userSchema.methods.generateAccessToken = function(){
         expiresIn: process.env.ACCESS_TOKEN_EXPIRY
     }
 }
-
+//kjhfgsd876asj87tds
+// console.log()
 userSchema.methods.generateRefreshToken = function(){
     return jwt.sign(
         {
