@@ -77,14 +77,14 @@ const loginUser = asyncHandler(async (req,res)=>{
     throw new ApiError(404, "Incorrect Password")
    }
    
-//    const {accessToken,refreshToken}=await generateAccessAndRefreshTokens(user._id)
-const usrId = user._id;
-const refreshToken = await jwt.sign({
-    userId
-},
-"jhjhgdhsgagd765sda",
-"10d"
-)
+   const {accessToken,refreshToken}=await generateAccessAndRefreshTokens(user._id)
+// const usrId = user._id;
+// const refreshToken = await jwt.sign({
+//     userId
+// },
+// "jhjhgdhsgagd765sda",
+// "10d"
+// )
    console.log(refreshToken)
    const loggedInUser = await User.findById(user._id).select("-password -refreshToken")
 
